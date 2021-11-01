@@ -1,6 +1,6 @@
 import React from 'react';
 import Account from "../Account/Account";
-import sou from '../assets/css/Nav.module.css'
+import sou from '../assets/css/Nav.module.css';
 import logo from '../assets/images/logo-bg.png';
 
 function Nav(props) {

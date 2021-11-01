@@ -1,15 +1,12 @@
 import '../components/assets/css/App.css';
-import Home from './Home/Home';
-import Nav from "./Nav/Nav";
+import Layout from "./Layout/Layout";
+import Home from "./Pages/Home/Home";
 
 function App() {
     return (
-        <div className="App">
-            <Nav/>
+        <Layout>
             <Home/>
-            <h1>Quiz App By React</h1>
-            <h1>Quiz App By React</h1>
-        </div>
+        </Layout>
     );
 }
 
