@@ -1,6 +1,6 @@
 import React from 'react';
 import sou from './Layout.module.css';
-import Nav from "../Nav/Nav";
+import Nav from "./Nav/Nav";
 
 function Layout({children}) {
     return (
