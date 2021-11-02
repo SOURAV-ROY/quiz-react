@@ -1,5 +1,5 @@
 import React from 'react';
-import sou from '../assets/css/Account.module.css';
+import sou from './Account.module.css';
 
 function Account(props) {
     return (

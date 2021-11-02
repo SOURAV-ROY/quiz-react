@@ -1,5 +1,5 @@
 import React from 'react';
-import sou from '../assets/css/Layout.module.css';
+import sou from './Layout.module.css';
 import Nav from "../Nav/Nav";
 
 function Layout({children}) {

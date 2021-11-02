@@ -1,6 +1,6 @@
 import React from 'react';
-import sou from '../assets/css/Video.module.css';
-import image from '../assets/images/3.jpg';
+import sou from './Video.module.css';
+import image from '../../assets/images/3.jpg';
 
 function Video(props) {
     return (
