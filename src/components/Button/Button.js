@@ -1,10 +1,10 @@
 import React from 'react';
 import sou from './Button.module.css';
 
-function Button({children}) {
+function Button({className, children}) {
     return (
-        <div className={sou.button}>
-            <span>{children}</span>
+        <div className={`${className} ${sou.button}`}>
+            {children}
         </div>
     );
 }

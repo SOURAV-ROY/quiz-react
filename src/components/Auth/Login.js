@@ -1,9 +1,9 @@
 import React from 'react';
+import Button from "../Button/Button";
+import Form from "../Form/Form";
+import Illustration from "../Illustration/Illustration";
+import TextInput from "../TextInput/TextInput";
 import sou from './Login.module.css';
-import Illustration from "./Illustration/Illustration";
-import Form from "./Form/Form";
-import TextInput from "./TextInput/TextInput";
-import Button from "./Button/Button";
 
 function Login() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
+import signupImg from '../assets/images/signup.svg';
 import sou from './Illustration.module.css';
-import signupImg from '../../assets/images/signup.svg';
 
 function Illustration() {
     return (
