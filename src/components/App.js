@@ -1,9 +1,10 @@
 import './App.css';
-import Layout from "./Layout/Layout";
-import Quiz from "./Pages/Quiz/Quiz";
-// import Home from "./Pages/Home/Home";
-// import Signup from "./Auth/Signup";
 // import Login from "./Auth/Login";
+// import Signup from "./Auth/Signup";
+import Layout from "./Layout/Layout";
+// import Home from "./Pages/Home/Home";
+// import Quiz from "./Pages/Quiz/Quiz";
+import Result from "./Pages/Result/Result";
 
 function App() {
     return (
@@ -11,7 +12,8 @@ function App() {
             {/*<Home/>*/}
             {/*<Signup/>*/}
             {/*<Login/>*/}
-            <Quiz/>
+            {/*<Quiz/>*/}
+            <Result/>
         </Layout>
     );
 }
