@@ -2,7 +2,9 @@ import React from 'react';
 import Video from './Video/Video';
 import sou from './Videos.module.css';
 
-function Videos(props) {
+// import {Link} from 'react-router-dom';
+
+function Videos() {
     return (
         <div className={sou.videos}>
             <Video/>
@@ -11,6 +13,7 @@ function Videos(props) {
             <Video/>
             <Video/>
             <Video/>
+            {/*<Link to='/quiz'><Video/></Link>*/}
         </div>
     );
 }
