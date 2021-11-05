@@ -1,5 +1,6 @@
 import React from 'react';
-import successImg from '../../../assets/images/success.png';
+// import successImg from '../../../assets/images/success.png';
+import score from '../../../assets/images/score.png';
 import sou from './Summary.module.css';
 
 function Summary() {
@@ -14,7 +15,7 @@ function Summary() {
             </div>
 
             <div className={sou.badge}>
-                <img src={successImg} alt="Success"/>
+                <img src={score} alt="Success"/>
             </div>
         </div>
     );
