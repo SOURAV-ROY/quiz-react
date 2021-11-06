@@ -3,9 +3,9 @@ import sou from './Button.module.css';
 
 function Button({className, children}) {
     return (
-        <div className={`${className} ${sou.button}`}>
+        <button className={`${className} ${sou.button}`}>
             {children}
-        </div>
+        </button>
     );
 }
 
