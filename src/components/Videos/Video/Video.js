@@ -1,18 +1,18 @@
 import React from 'react';
-import image from '../../assets/images/3.jpg';
+// import image from '../../assets/images/3.jpg';
 import sou from './Video.module.css';
 
 // import {Link} from 'react-router-dom';
 
-function Video() {
+function Video({title, id, noq}) {
     return (
         // <Link to='/quiz'>
         <div className={sou.video}>
-            <img src={image} alt="Video"/>
-            <p>#23 React Hooks Bangla - React useReducer hook Bangla</p>
+            <img src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} alt={title}/>
+            <p>{title}</p>
             <div className={sou.qmeta}>
-                <p>10 Questions</p>
-                <p>Score : Not taken yet</p>
+                <p>{noq} Questions</p>
+                <p>Total Score : {noq * 2.5}</p>
             </div>
         </div>
         // </Link>
