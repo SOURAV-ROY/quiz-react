@@ -10,7 +10,9 @@ const firebaseConfigAPI = {
     projectId: process.env.REACT_APP_PROJECT_ID,
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_ID
+    appId: process.env.REACT_APP_ID,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+
 };
 
 // console.log(firebaseConfigAPI);
@@ -18,6 +20,6 @@ const firebaseConfigAPI = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfigAPI);
 
-console.log(app);
+// console.log(app);
 
 export default app;
