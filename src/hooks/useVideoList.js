@@ -51,7 +51,7 @@ function useVideoList(page) {
             }
         }
 
-        fetchVideos().then(() => console.log(`Loaded successfully !!! ${get}`));
+        fetchVideos().then(() => console.log(`Loaded successfully !!!`));
     }, [page])
 
     return {
