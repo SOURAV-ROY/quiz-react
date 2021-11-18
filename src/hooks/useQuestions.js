@@ -5,43 +5,36 @@ import {
     query,
     orderByKey,
     get,
-    startAt,
-    limitToFirst
 } from 'firebase/database';
 
-function useVideoList(page) {
+function useQuestions(videoID) {
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [videos, setVideos] = useState([]);
-    const [hasMore, setHasMore] = useState(true);
+    const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        async function fetchVideos() {
+        async function fetchQuestions() {
             // Database related work
             const db = getDatabase();
-            const videosRef = ref(db, 'videos');
+            const quizRef = ref(db, 'quiz/' + videoID + '/questions');
 
-            const videoQuery = query(
-                videosRef,
+            const quizQuery = query(
+                quizRef,
                 orderByKey(),
-                startAt("" + page),
-                limitToFirst(6)
             );
 
             try {
                 setError(false);
                 setLoading(true);
                 // Request firebase database
-                const snapshot = await get(videoQuery);
+                const snapshot = await get(quizQuery);
                 setLoading(false);
 
                 if (snapshot.exists()) {
-                    setVideos((prevVideos) => {
-                        return [...prevVideos, ...Object.values(snapshot.val())];
+                    setQuestions((prevQuestions) => {
+                        return [...prevQuestions, ...Object.values(snapshot.val())];
                     })
-                } else {
-                    setHasMore(false);
                 }
 
             } catch (err) {
@@ -51,18 +44,16 @@ function useVideoList(page) {
             }
         }
 
-        setTimeout(() => {
-            fetchVideos().then(() => console.log(`Loaded successfully !!!`));
-        }, 1000);
+        fetchQuestions().then(() => console.log(`Questions Loaded !!!`));
 
-    }, [page])
+
+    }, [videoID])
 
     return {
         loading,
         error,
-        videos,
-        hasMore
+        questions,
     }
 }
 
-export default useVideoList;
+export default useQuestions;
