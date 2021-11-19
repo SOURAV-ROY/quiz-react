@@ -3,8 +3,10 @@ import Answers from "./Answers/Answers";
 import MiniPlayer from "./MiniPlayer/MiniPlayer";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import useQuestions from '../../../hooks/useQuestions';
-import {useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
+import {useAuth} from '../../../contexts/AuthContext';
 import _ from 'lodash';
+import {getDatabase, ref, set} from "firebase/database";
 
 const initialState = null;
 const reducer = (state, action) => {
@@ -33,7 +35,11 @@ function Quiz() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
     const [qna, dispatch] = useReducer(reducer, initialState);
-    console.log(qna);
+    const {currentUser} = useAuth();
+    // console.log(qna);
+    // console.log(currentUser.uid);
+
+    const history = useHistory();
 
     useEffect(() => {
         dispatch({
@@ -50,6 +56,41 @@ function Quiz() {
             value: e.target.checked,
         })
     }
+
+    // Handle the use clicks the next button to get the new question
+    const nextQuestion = () => {
+        console.log('Next');
+        if (currentQuestion <= questions.length) {
+            setCurrentQuestion(prevQuestion => prevQuestion + 1);
+        }
+    }
+
+    // Handle the clicks on the prev button to get back the previous question
+    const prevQuestion = () => {
+        console.log('Prev')
+        if (currentQuestion >= 1 && currentQuestion <= questions.length) {
+            setCurrentQuestion(prevQuestion => prevQuestion - 1);
+        }
+    }
+    // Submit Button
+    const submitHandle = async () => {
+        const {uid} = currentUser;
+        const db = getDatabase();
+        const resultRef = ref(db, `result/${uid}`);
+
+        await set(resultRef, {
+            [id]: qna
+        });
+
+        history.push({
+            pathname: `/result/${id}`,
+            state: {qna}
+
+        })
+    }
+    // Calculate the progress of the current question
+    const percentage = currentQuestion > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
+
     return (
         <>
             {loading && <div>Loading....</div>}
@@ -58,9 +99,18 @@ function Quiz() {
             {!loading && !error && qna && qna.length > 0 && (
                 <>
                     <h1>{qna[currentQuestion].title}</h1>
+
                     <h4>Question can have multiple answers</h4>
+
                     <Answers options={qna[currentQuestion].options} handleChange={handleAnswerChange}/>
-                    <ProgressBar/>
+
+                    <ProgressBar
+                        next={nextQuestion}
+                        prev={prevQuestion}
+                        submit={submitHandle}
+                        progress={percentage}
+                    />
+
                     <MiniPlayer/>
                 </>
             )}
