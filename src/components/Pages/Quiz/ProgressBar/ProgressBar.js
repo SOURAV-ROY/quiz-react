@@ -21,7 +21,7 @@ function ProgressBar({next, prev, progress, submit}) {
                 className={sou.next}
                 onClick={progress === 100 ? submit : next}
             >
-                <span>{progress === 100 ? 'Submit Quiz' : 'Next Question'}</span>
+                <span>{progress === 100 ? 'Submit Quiz' : 'Next Questions'}</span>
                 <span className="material-icons-outlined"> arrow_forward </span>
             </Button>
             {/*</Link>*/}

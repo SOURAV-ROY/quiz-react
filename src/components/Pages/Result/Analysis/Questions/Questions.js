@@ -2,16 +2,16 @@ import React from 'react';
 import Answers from "../../../Quiz/Answers/Answers";
 import sou from './Question.module.css';
 
-function Question() {
-    return (
-        <div className={sou.question}>
+function Questions({answers = []}) {
+    return answers.map((answer, index) => (
+        <div className={sou.question} key={index}>
             <div className={sou.qtitle}>
                 <span className="material-icons-outlined"> help_outline </span>
-                Here goes the question from Learn with SOURAV ?
+                {answer.title}
             </div>
-            <Answers/>
+            <Answers input={false} options={answer.options}/>
         </div>
-    );
+    ))
 }
 
-export default Question;
+export default Questions;
