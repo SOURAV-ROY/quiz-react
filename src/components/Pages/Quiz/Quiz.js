@@ -88,8 +88,9 @@ function Quiz() {
 
         })
     }
+
     // Calculate the progress of the current question
-    const percentage = currentQuestion > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
+    const percentage = questions.length > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
 
     return (
         <>
