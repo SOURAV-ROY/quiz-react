@@ -2,8 +2,6 @@ import React from 'react';
 import Button from "../../../Button/Button";
 import sou from './ProgressBar.module.css';
 
-// import {Link} from 'react-router-dom';
-
 function ProgressBar({next, prev, progress, submit}) {
     return (
         <div className={sou.progressBar}>
@@ -16,15 +14,14 @@ function ProgressBar({next, prev, progress, submit}) {
                     <div className={sou.progress} style={{width: `${progress}%`}}/>
                 </div>
             </div>
-            {/*<Link to="/result">*/}
+
             <Button
                 className={sou.next}
                 onClick={progress === 100 ? submit : next}
             >
-                <span>{progress === 100 ? 'Submit Quiz' : 'Next Questions'}</span>
+                <span>{progress === 100 ? 'Submit Quiz' : 'Next Question'}</span>
                 <span className="material-icons-outlined"> arrow_forward </span>
             </Button>
-            {/*</Link>*/}
         </div>
     );
 }
