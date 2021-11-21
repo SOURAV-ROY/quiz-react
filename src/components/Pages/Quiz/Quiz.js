@@ -116,7 +116,7 @@ function Quiz() {
                         progress={percentage}
                     />
 
-                    <MiniPlayer/>
+                    <MiniPlayer id={id} title={qna[currentQuestion].title}/>
                 </>
             )}
         </>
