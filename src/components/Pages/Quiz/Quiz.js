@@ -40,6 +40,12 @@ function Quiz() {
     // console.log(currentUser.uid);
 
     const history = useHistory();
+    const {location} = history;
+    const {state} = location;
+    const {videoTitle} = state;
+
+    // console.log(history);
+    console.log(location);
 
     useEffect(() => {
         dispatch({
@@ -116,7 +122,7 @@ function Quiz() {
                         progress={percentage}
                     />
 
-                    <MiniPlayer id={id} title={qna[currentQuestion].title}/>
+                    <MiniPlayer id={id} title={videoTitle}/>
                 </>
             )}
         </>

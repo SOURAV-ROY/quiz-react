@@ -9,7 +9,7 @@ function MiniPlayer({id, title}) {
 
     const videoUrl = `https://www.youtube.com/watch?v=${id}`;
 
-    function toggleMiniPlayer() {
+    const toggleMiniPlayer = () => {
         if (!status) {
             buttonRef.current.classList.remove(sou.floatingBtn);
             setStatus(true);
