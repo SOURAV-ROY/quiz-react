@@ -12,7 +12,7 @@ function Result() {
     const {qna} = state;
 
     const {loading, error, answers} = useAnswers(id);
-    console.log(answers);
+    // console.log(answers);
 
     const calculate = () => {
         let score = 0;

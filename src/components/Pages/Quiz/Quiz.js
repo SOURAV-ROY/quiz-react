@@ -45,7 +45,7 @@ function Quiz() {
     const {videoTitle} = state;
 
     // console.log(history);
-    console.log(location);
+    // console.log(location);
 
     useEffect(() => {
         dispatch({
