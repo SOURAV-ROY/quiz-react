@@ -8,11 +8,11 @@ function Summary({score, noq}) {
     const getKeyWord = useMemo(() => {
         console.log('GetKeyWord');
         if ((score / (noq * 5)) * 100 < 50) {
-            return 'DONE';
+            return 'failed';
         } else if ((score / (noq * 5)) * 100 < 75) {
-            return 'very good';
+            return 'good';
         } else if ((score / (noq * 5)) * 100 < 100) {
-            return 'WOW';
+            return 'awesome';
         } else {
             return 'excellent';
         }

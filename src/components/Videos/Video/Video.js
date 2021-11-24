@@ -12,7 +12,7 @@ function Video({title, id, noq}) {
             <p>{title}</p>
             <div className={sou.qmeta}>
                 <p>{noq} Questions</p>
-                <p>Total Score : {noq * 2.5}</p>
+                <p>Total Score : {noq * 5}</p>
             </div>
         </div>
         // </Link>
